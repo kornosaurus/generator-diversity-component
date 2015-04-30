@@ -12,7 +12,7 @@ Then just run:
 
 The generator will guide you through starting a new component.
 
-** Please note, component name needs 'tws' as first three letters **
+**Please note, component name needs 'tws' as first three letters**
 
 example:
 `
