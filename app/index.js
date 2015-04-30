@@ -14,12 +14,7 @@ module.exports = generators.Base.extend({
 
   prompting: function() {
     var complete = this.async();
-    var prompts = [{
-      type: 'input',
-      name: 'name',
-      message: 'Components name:',
-      default: changeCase.paramCase(this.appname)
-    }];
+    var prompts = [];
 
     if (!this.emptydir) {
       prompts.push({
@@ -45,19 +40,44 @@ module.exports = generators.Base.extend({
         prompt.newdir = true;
       }
 
+      //If we are creating a new directory we need a component name.
       this.newdir = prompt.newdir;
-      this.name   = changeCase.paramCase(prompt.name);
-      if (prompt.name === undefined) {
-        this.name = changeCase.paramCase(changeCase.paramCase(this.appname));
-      }
+      if (this.newdir) {
 
-      complete();
+        //running prompt for component name
+        this.prompt({
+          type: 'input',
+          name: 'name',
+          message: 'Components name:',
+          default: 'component name'
+        }, function(prompt, error) {
+          if (error) {
+            return this.log('Ooops, there has been an error:', error);
+          }
+
+          this.name = changeCase.paramCase(prompt.name);
+          complete();
+
+        }.bind(this));
+
+      } else {
+
+        this.name = changeCase.paramCase(this.appname);
+        complete();
+
+      }
 
     }.bind(this));
   },
 
   writing: function() {
     var basefilename = this.name.split('-');
+    var key          = 0;
+
+    //if this is a native component we need another filename
+    if (basefilename[0] === 'tws') {
+      key = 1;
+    }
 
     //Let's format the component name to our needs
     this.title          = changeCase.sentenceCase(this.name).slice(4);
@@ -65,11 +85,11 @@ module.exports = generators.Base.extend({
     this.camelname      = changeCase.camelCase(this.name);
     this.directive      = this.name + '-directive';
     this.cameldirective = changeCase.camelCase(this.directive);
-    this.directiveFile  = basefilename[1] + '.js';
-    this.templateFile   = basefilename[1] + '.html';
+    this.directiveFile  = basefilename[key] + '.js';
+    this.templateFile   = basefilename[key] + '.html';
 
     //if we need a new directory, set path
-    this.projectdir     = '';
+    this.projectdir = '';
     if (this.newdir) {
       this.projectdir = this.name + '/';
     }
