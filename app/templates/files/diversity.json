@@ -1,0 +1,16 @@
+{
+  "name": "<%= componentName %>",
+  "title": "<%= componentTitle %>",
+  "description": "",
+  "version": "0.0.1",
+  "angular": "<%= componentCamelName %>",
+  "template": "component.mustache.html",
+  "grouping": [],
+  "script": [
+    "scripts.min.js"
+  ],
+  "dependencies": {
+    "tws-api": "^1.7.1",
+    "tws-bootstrap": "^1.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "undef": true,
+  "unused": true,
+  "browser": true,
+  "trailing": true,
+  "indent": 2,
+  "globals": {
+    "console":false,
+    "jQuery": false,
+    "$":false,
+    "describe": false,
+    "it":false,
+    "expect": false,
+    "sinon":false,
+    "beforeEach": false,
+    "afterEach": false,
+    "angular": false,
+    "module": false,
+    "inject": false,
+    "chai": false,
+    "should": false,
+    "Jed": false,
+    "tws": false,
+    "require": false
+  }
+}

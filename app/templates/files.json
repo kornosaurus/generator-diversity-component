@@ -1,0 +1,10 @@
+[
+  "component.mustache.html",
+  "diversity.json",
+  "package.json",
+  "README.md",
+  "src/module.js",
+  "src/directives/seed.js",
+  "templates/seed.html",
+  "test/manual.html"
+]

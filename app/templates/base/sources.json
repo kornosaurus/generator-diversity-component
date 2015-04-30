@@ -1,0 +1,4 @@
+[
+  "src/module.js",
+  "src/directives/*.js"
+]

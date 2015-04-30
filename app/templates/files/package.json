@@ -1,0 +1,28 @@
+{
+  "name": "<%= componentName %>",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "karma start test/karma.conf.js"
+  },
+  "author": "Textalk",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "connect": "^2.21.1",
+    "gulp": "^3.8.5",
+    "jshint-stylish": "^0.2.0",
+    "karma": "^0.12.16",
+    "karma-chai-sinon": "^0.1.3",
+    "karma-coverage": "^0.2.4",
+    "karma-growler-reporter": "0.0.1",
+    "karma-mocha": "^0.1.4",
+    "karma-ng-html2js-preprocessor": "^0.1.0",
+    "mocha": "^1.20.1",
+    "q": "^1.0.1",
+    "sinon": "^1.10.2",
+    "sinon-chai": "^2.5.0",
+    "diversity-build": "git+https://git.diversity.io/tooling/diversity-build.git#master"
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual Test of Diversity Component</title>
+  <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body ng-controller="TestCtrl">
+  <div id="target">
+
+  </div>
+
+  <!-- base dependencies that are not included as deps in diversity.json -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="deps/jquery.jsonrpcclient.js/jquery.jsonrpcclient.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+  <script type="text/javascript" src="deps/diversity-js/diversity-renderer.js"></script>
+  <script type="text/javascript">
+  angular.module('test', ['<%= componentCamelName %>']).controller('TestCtrl', function() {
+    //Use the TestCtrl to setup anythin you component might need,
+    //like an order or settings etc
+  }).constant('webshop', 41503);
+
+//Load component.
+//Change name of component and backend and webshop uid to something suitable
+$('#target').diversity('<%= componentName %>', {
+  root: '../',
+  deps: 'deps/',
+  backend: 'https://davidstage.textalk.se/backend/jsonrpc/v1/',
+  context:  {
+    webshop: 41503, // burningbroccoli test shop
+    languageCode: 'sv',
+    currencyCode: 'SEK'
+  },
+  module: 'test'
+});
+</script>
+  </body>
+</html>
