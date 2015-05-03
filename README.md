@@ -14,8 +14,7 @@ Then just run:
  **or** 
  * `mkdir component-name && cd component-name && yo diversity-component`
 
-___________________
 
-**Arguments**
-
+Arguments
+-----------------------
 The generator takes one optional argument; the name of the component.
