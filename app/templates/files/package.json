@@ -1,5 +1,5 @@
 {
-  "name": "<%= componentName %>",
+  "name": "<%= componentCamelName %>",
   "version": "0.0.1",
   "description": "",
   "main": "gulpfile.js",

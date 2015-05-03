@@ -9,12 +9,13 @@ First install yeoman and the generator:
 
 
 Then just run:
- * `yo diversity-component`
+ * `yo diversity-component component-name`
+
+ **or** 
+ * `mkdir component-name && cd component-name && yo diversity-component`
 
 ___________________
 
-You can create the project directory on your own and `cd` inside it. Or just run the generator where you want the project directory.
+**Arguments**
 
-**Component name**
-
-Project folder is always param-cased (ex. `component-name`). However if you let the generator create the project folder for you then the component name can be formatted how you want, the generator will reformat the string anyway.
+The generator takes one optional argument; the name of the component.

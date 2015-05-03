@@ -1,5 +1,5 @@
 {
-  "name": "<%= componentName %>",
+  "name": "<%= componentCamelName %>",
   "title": "<%= componentTitle %>",
   "description": "",
   "version": "0.0.1",

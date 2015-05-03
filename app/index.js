@@ -4,74 +4,24 @@ var fs         = require('fs');
 var chalk      = require('chalk');
 
 module.exports = generators.Base.extend({
-  initializing: function() {
-    this.root     = fs.readdirSync(this.destinationRoot());
-    this.files    = this.fs.readJSON(this.sourceRoot() + '/files.json');
-    this.emptydir = true;
-
-    if (this.root.length > 0) { this.emptydir = false; }
+  constructor: function() {
+    generators.Base.apply(this, arguments);
+    this.argument('compname', { type: String, required: false});
   },
 
-  prompting: function() {
-    var complete = this.async();
-    var prompts = [];
-
-    if (!this.emptydir) {
-      prompts.push({
-        type: 'confirm',
-        name: 'newdir',
-        message: 'This directory isn\'t empty, do you want me to create a project directory for you?'
-      });
-    } else {
-      prompts.push({
-        type: 'confirm',
-        name: 'isroot',
-        message: 'Is this the project folder?'
-      });
+  initializing: function() {
+    this.files    = this.fs.readJSON(this.sourceRoot() + '/files.json');
+    this.newdir   = false;
+    if (this.compname) {
+      this.appname = this.compname;
+      this.newdir  = true;
     }
 
-    //run prompts to user
-    this.prompt(prompts, function(prompt, error) {
-      if (error) {
-        return this.log('Ooops, there has been an error:', error);
-      }
-
-      if (!prompt.isroot) {
-        prompt.newdir = true;
-      }
-
-      //If we are creating a new directory we need a component name.
-      this.newdir = prompt.newdir;
-      if (this.newdir) {
-
-        //running prompt for component name
-        this.prompt({
-          type: 'input',
-          name: 'name',
-          message: 'Components name:',
-          default: 'component name'
-        }, function(prompt, error) {
-          if (error) {
-            return this.log('Ooops, there has been an error:', error);
-          }
-
-          this.name = changeCase.paramCase(prompt.name);
-          complete();
-
-        }.bind(this));
-
-      } else {
-
-        this.name = changeCase.paramCase(this.appname);
-        complete();
-
-      }
-
-    }.bind(this));
+    this.appname  = changeCase.paramCase(this.appname);
   },
 
   writing: function() {
-    var basefilename = this.name.split('-');
+    var basefilename = this.appname.split('-');
     var key          = 0;
 
     //if this is a native component we need another filename
@@ -80,10 +30,10 @@ module.exports = generators.Base.extend({
     }
 
     //Let's format the component name to our needs
-    this.title          = changeCase.sentenceCase(this.name).slice(4);
+    this.title          = changeCase.sentenceCase(this.appname).slice(4);
     this.title          = changeCase.upperCaseFirst(this.title);
-    this.camelname      = changeCase.camelCase(this.name);
-    this.directive      = this.name + '-directive';
+    this.camelname      = changeCase.camelCase(this.appname);
+    this.directive      = this.appname + '-directive';
     this.cameldirective = changeCase.camelCase(this.directive);
     this.directiveFile  = basefilename[key] + '.js';
     this.templateFile   = basefilename[key] + '.html';
@@ -91,7 +41,7 @@ module.exports = generators.Base.extend({
     //if we need a new directory, set path
     this.projectdir = '';
     if (this.newdir) {
-      this.projectdir = this.name + '/';
+      this.projectdir = this.appname + '/';
     }
 
     this.fs.copy(
@@ -108,7 +58,6 @@ module.exports = generators.Base.extend({
         this.templatePath('files/' + entry),
         this.destinationPath(this.projectdir + destination), {
           componentTitle: this.title,
-          componentName: this.name,
           componentCamelName: this.camelname,
           componentDirective: this.directive,
           componentCamelDirective: this.cameldirective,
