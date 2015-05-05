@@ -6,5 +6,8 @@
   "src/module.js",
   "src/directives/seed.js",
   "templates/seed.html",
+  "<%>gitignore",
+  "<%>jscsrc",
+  "<%>jshintrc",
   "test/manual.html"
 ]

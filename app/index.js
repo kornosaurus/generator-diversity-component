@@ -53,6 +53,7 @@ module.exports = generators.Base.extend({
       var destination = entry;
       destination     = destination.replace('seed.js', this.directiveFile);
       destination     = destination.replace('seed.html', this.templateFile);
+      destination     = destination.replace('<%>', '.');
 
       this.fs.copyTpl(
         this.templatePath('files/' + entry),
