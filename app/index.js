@@ -1,7 +1,7 @@
-var generators = require('yeoman-generator');
-var changeCase = require('change-case');
-var fs         = require('fs');
-var chalk      = require('chalk');
+var generators        = require('yeoman-generator');
+var changeCase        = require('change-case');
+var fs                = require('fs');
+var chalk             = require('chalk');
 
 module.exports = generators.Base.extend({
   constructor: function() {
@@ -10,36 +10,32 @@ module.exports = generators.Base.extend({
   },
 
   initializing: function() {
-    this.files    = this.fs.readJSON(this.sourceRoot() + '/files.json');
-    this.newdir   = false;
+    this.files        = this.fs.readJSON(this.sourceRoot() + '/files.json');
+    this.newdir       = false;
     if (this.compname) {
       this.appname = this.compname;
       this.newdir  = true;
     }
 
-    this.appname  = changeCase.paramCase(this.appname);
+    this.appname = changeCase.paramCase(this.appname);
   },
 
   writing: function() {
-    var basefilename = this.appname.split('-');
-    var key          = 0;
+    var split    = this.appname.split('-');
+    var filename = this.appname;
+    var key      = 0;
 
     //if this is a native component we need another filename
-    if (basefilename[0] === 'tws') {
-      key = 1;
-    }
+    filename = filename.replace(/^tws-/, '');
+    filename = changeCase.camelCase(filename);
 
     //Let's format the component name to our needs
-    this.title          = changeCase.sentenceCase(this.appname).slice(4);
-    this.title          = changeCase.upperCaseFirst(this.title);
-    this.camelname      = changeCase.camelCase(this.appname);
-    this.directive      = this.appname + '-directive';
-    this.cameldirective = changeCase.camelCase(this.directive);
-    this.directiveFile  = basefilename[key] + '.js';
-    this.templateFile   = basefilename[key] + '.html';
+    this.title     = changeCase.sentenceCase(this.appname).slice(4);
+    this.title     = changeCase.upperCaseFirst(this.title);
+    this.camelname = changeCase.camelCase(this.appname);
 
     //if we need a new directory, set path
-    this.projectdir = '';
+    this.projectdir   = '';
     if (this.newdir) {
       this.projectdir = this.appname + '/';
     }
@@ -51,8 +47,8 @@ module.exports = generators.Base.extend({
 
     this.files.forEach(function(entry) {
       var destination = entry;
-      destination     = destination.replace('seed.js', this.directiveFile);
-      destination     = destination.replace('seed.html', this.templateFile);
+      destination     = destination.replace('seed.js', filename + '.js');
+      destination     = destination.replace('seed.html', filename + '.html');
       destination     = destination.replace('<%>', '.');
 
       this.fs.copyTpl(
@@ -60,10 +56,10 @@ module.exports = generators.Base.extend({
         this.destinationPath(this.projectdir + destination), {
           componentTitle: this.title,
           componentCamelName: this.camelname,
-          componentDirective: this.directive,
-          componentCamelDirective: this.cameldirective,
-          directiveFile: this.directiveFile,
-          templateFile: this.templateFile
+          componentDirective: this.appname,
+          componentCamelDirective: this.camelname,
+          directiveFile: filename + '.js',
+          templateFile: filename + '.html'
         }
       );
     }.bind(this));
