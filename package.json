@@ -1,6 +1,6 @@
 {
   "name": "generator-diversity-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Yeoman generator for Diversity component",
   "author": "Simon Korn",
   "main": "app/index.js",
