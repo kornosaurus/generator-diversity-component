@@ -16,7 +16,7 @@ angular.module('<%= componentCamelName %>').directive('<%= componentCamelDirecti
       link: function(scope, element, attrs) {
         jed(scope, '<%= componentCamelName %>');
 
-        scope.greetings = 'Hello World';
+        scope.greeting = 'Hello World';
       }
     };
   }

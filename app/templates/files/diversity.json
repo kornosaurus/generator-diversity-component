@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "angular": "<%= componentCamelName %>",
   "template": "component.mustache.html",
+  "style": "main.css",
   "grouping": [],
   "script": [
     "scripts.min.js"

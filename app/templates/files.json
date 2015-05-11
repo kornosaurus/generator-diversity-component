@@ -9,5 +9,6 @@
   "<%>gitignore",
   "<%>jscsrc",
   "<%>jshintrc",
-  "test/manual.html"
+  "test/manual.html",
+  "test/tests.js"
 ]
