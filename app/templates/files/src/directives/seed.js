@@ -14,7 +14,7 @@ angular.module('<%= componentCamelName %>').directive('<%= componentCamelDirecti
       scope: {},
       templateUrl: '<%= componentCamelName %>/templates/<%= templateFile %>',
       link: function(scope, element, attrs) {
-        jed(scope, '<%= componentCamelName %>');
+        jed(scope, '<%= componentDirective %>');
 
         scope.greeting = 'Hello World';
       }
