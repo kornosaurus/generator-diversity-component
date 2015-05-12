@@ -12,7 +12,7 @@ angular.module('<%= componentCamelName %>').directive('<%= componentCamelDirecti
     return {
       restrict: 'A',
       scope: {},
-      templateUrl: '<%= componentCamelName %>/templates/<%= templateFile %>',
+      templateUrl: '<%= componentName %>/templates/<%= templateFile %>',
       link: function(scope, element, attrs) {
         jed(scope, '<%= componentName %>');
 
