@@ -19,10 +19,10 @@
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
   <script type="text/javascript" src="deps/diversity-js/diversity-renderer.js"></script>
   <script type="text/javascript">
-  angular.module('test', ['<%= componentCamelName %>']).controller('TestCtrl', function() {
+  angular.module('test', []).controller('TestCtrl', function() {
     //Use the TestCtrl to setup anythin you component might need,
     //like an order or settings etc
-  }).constant('webshop', 41503);
+  }).constant('language', 'sv').constant('webshop', 41503);
 
 //Load component.
 //Change name of component and backend and webshop uid to something suitable
