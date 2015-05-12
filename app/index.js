@@ -55,8 +55,8 @@ module.exports = generators.Base.extend({
         this.templatePath('files/' + entry),
         this.destinationPath(this.projectdir + destination), {
           componentTitle: this.title,
+          componentName: this.appname,
           componentCamelName: this.camelname,
-          componentDirective: this.appname,
           componentCamelDirective: this.camelname,
           directiveFile: filename + '.js',
           templateFile: filename + '.html'
