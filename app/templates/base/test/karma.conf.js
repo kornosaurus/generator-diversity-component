@@ -14,10 +14,11 @@ module.exports = function(config) {
     files: [
       'http://code.jquery.com/jquery-2.1.0.min.js',
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js',
-      'https://code.angularjs.org/1.2.16/angular-sanitize.min.js',
-      'https://code.angularjs.org/1.2.16/angular-mocks.js',
+      'https://code.angularjs.org/1.3.15/angular-sanitize.min.js',
+      'https://code.angularjs.org/1.3.15/angular-mocks.js',
       'src/module.js',
-      'src/SeedCtrl.js',
+      'src/services/*.js',
+      'src/directives/*.js',
       'test/tests.js'
     ],
 
