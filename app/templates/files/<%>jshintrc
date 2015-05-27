@@ -21,6 +21,8 @@
     "should": false,
     "Jed": false,
     "tws": false,
-    "require": false
+    "require": false, 
+    "Big": true, 
+    "tv4": true
   }
 }
