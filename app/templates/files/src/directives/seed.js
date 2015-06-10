@@ -10,7 +10,7 @@ angular.module('<%= componentCamelName %>').directive('<%= componentCamelDirecti
     'use strict';
 
     return {
-      restrict: 'A',
+      restrict: 'E',
       scope: {},
       templateUrl: '<%= componentName %>/templates/<%= templateFile %>',
       link: function(scope, element, attrs) {
