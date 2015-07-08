@@ -1,4 +1,8 @@
 {
   "preset": "google",
-  "maximumLineLength": 100
+  "maximumLineLength": {
+    "value": 100,
+    "allowUrlComments": true,
+    "allowRegex": true
+  }
 }
