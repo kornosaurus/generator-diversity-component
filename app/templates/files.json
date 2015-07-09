@@ -10,5 +10,7 @@
   "<%>jscsrc",
   "<%>jshintrc",
   "test/manual.html",
-  "test/tests.js"
+  "test/protractor.conf.js",
+  "test/karma/unitTests.js",
+  "test/protractor/e2eTests.js"
 ]

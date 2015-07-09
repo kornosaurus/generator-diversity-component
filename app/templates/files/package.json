@@ -4,7 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "karma start test/karma.conf.js"
+    "test": "gulp karma && gulp protractor"
   },
   "author": "Textalk",
   "license": "MIT",
@@ -28,7 +28,9 @@
     "tota11y": "*",
     "angular": "^1.4.1",
     "angular-sanitize": "^1.4.1",
+    "angular-mocks": "^1.4.2",
     "jquery": "^2.1.4",
-    "mustache": "^2.1.2"
+    "mustache": "^2.1.2",
+    "gulp-protractor": "^1.0.0"
   }
 }
