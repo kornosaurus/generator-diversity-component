@@ -24,7 +24,7 @@
     "q": "^1.0.1",
     "sinon": "^1.10.2",
     "sinon-chai": "^2.5.0",
-    "diversity-build": "git+https://git.diversity.io/tooling/diversity-build.git#feature/protractor-tests",
+    "diversity-build": "git+https://git.diversity.io/tooling/diversity-build.git#master",
     "tota11y": "*",
     "angular": "^1.4.1",
     "angular-sanitize": "^1.4.1",
