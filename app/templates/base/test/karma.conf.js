@@ -12,14 +12,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'http://code.jquery.com/jquery-2.1.0.min.js',
-      'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js',
-      'https://code.angularjs.org/1.3.15/angular-sanitize.min.js',
-      'https://code.angularjs.org/1.3.15/angular-mocks.js',
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/angular/angular.min.js',
+      'node_modules/angular-sanitize/angular-sanitize.min.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       'src/module.js',
       'src/services/*.js',
       'src/directives/*.js',
-      'test/tests.js'
+      'test/karma/*.js'
     ],
 
     // list of files to exclude
