@@ -32,6 +32,6 @@
     "jquery": "^2.1.4",
     "mustache": "^2.1.2",
     "gulp-protractor": "^1.0.0",
-    "bootlint-gui": "0.0.3"
+    "bootlint-gui": "^1.0.0"
   }
 }
