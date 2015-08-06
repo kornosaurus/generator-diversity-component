@@ -9,9 +9,16 @@
   "author": "Textalk",
   "license": "MIT",
   "devDependencies": {
+    "angular": "^1.4.1",
+    "angular-sanitize": "^1.4.1",
+    "angular-mocks": "^1.4.2",
+    "bootlint-gui": "^1.0.0",
     "chai": "^1.9.1",
     "connect": "^2.21.1",
+    "diversity-build": "git+https://git.diversity.io/tooling/diversity-build.git#master",
     "gulp": "^3.8.5",
+    "gulp-protractor": "^1.0.0",
+    "jquery": "^2.1.4",
     "jshint-stylish": "^0.2.0",
     "karma": "^0.12.16",
     "karma-chai-plugins": "^0.5.0",
@@ -21,17 +28,10 @@
     "karma-mocha": "^0.1.4",
     "karma-ng-html2js-preprocessor": "^0.1.0",
     "mocha": "^1.20.1",
+    "mustache": "^2.1.2",
     "q": "^1.0.1",
     "sinon": "^1.10.2",
     "sinon-chai": "^2.5.0",
-    "diversity-build": "git+https://git.diversity.io/tooling/diversity-build.git#master",
-    "tota11y": "*",
-    "angular": "^1.4.1",
-    "angular-sanitize": "^1.4.1",
-    "angular-mocks": "^1.4.2",
-    "jquery": "^2.1.4",
-    "mustache": "^2.1.2",
-    "gulp-protractor": "^1.0.0",
-    "bootlint-gui": "^1.0.0"
+    "tota11y": "*"
   }
 }
