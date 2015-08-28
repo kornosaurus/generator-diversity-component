@@ -2,8 +2,10 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manual Test for <%= componentTitle %></title>
+  <link href="/node_modules/bootlint-gui/dist/bootlint-gui.css" rel="stylesheet">
   <script src="http://localhost:35729/livereload.js"></script>
 </head>
 <body ng-controller="TestCtrl">
@@ -19,6 +21,7 @@
   <script type="text/javascript" src="/node_modules/mustache/mustache.min.js"></script>
   <script type="text/javascript" src="deps/diversity-js/diversity-renderer.js"></script>
   <script type="text/javascript" src="/node_modules/tota11y/build/tota11y.min.js"></script>
+  <script type="text/javascript" src="/node_modules/bootlint-gui/dist/bootlint-gui.js"></script>
   <script type="text/javascript">
   angular.module('test', []).controller('TestCtrl', function() {
     //Use the TestCtrl to setup anythin you component might need,
