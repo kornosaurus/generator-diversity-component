@@ -6,6 +6,7 @@
   "angular": "<%= componentCamelName %>",
   "template": "component.mustache.html",
   "style": "main.css",
+  "i18n": {},
   "grouping": [],
   "script": [
     "scripts.min.js"
