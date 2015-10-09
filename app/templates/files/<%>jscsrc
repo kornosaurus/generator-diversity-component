@@ -1,5 +1,6 @@
 {
   "preset": "google",
+  "esnext": true,
   "maximumLineLength": {
     "value": 100,
     "allowUrlComments": true,
