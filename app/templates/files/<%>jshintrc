@@ -4,6 +4,7 @@
   "browser": true,
   "trailing": true,
   "indent": 2,
+  "esnext": true,
   "globals": {
     "console":false,
     "jQuery": false,

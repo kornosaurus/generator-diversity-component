@@ -42,6 +42,18 @@ module.exports = function(config) {
       dir : 'coverage/'
     },
 
+    babelPreprocessor: {
+      options: {
+        sourceMap: 'inline'
+      },
+      filename: function (file) {
+        return file.originalPath.replace(/\.js$/, '.es5.js');
+      },
+      sourceFileName: function (file) {
+        return file.originalPath;
+      }
+    },
+
     ngHtml2JsPreprocessor: {
       cacheIdFromPath: function(filepath) {
         console.log(filepath);
