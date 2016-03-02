@@ -11,8 +11,5 @@
   "script": [
     "scripts.min.js"
   ],
-  "dependencies": {
-    "tws-api": "<%= apiVersion %>",
-    "tws-bootstrap": "<%= bootstrapVersion %>"
-  }
+  "dependencies": <%= diversityDeps %>
 }
