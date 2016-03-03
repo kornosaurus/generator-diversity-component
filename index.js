@@ -28,14 +28,6 @@ class diversityComponentGenerator extends Base {
   }
 
   initializing() {
-    const done = this.async();
-
-    // Use the latest version of tws-api and tws-bootstrap
-    const diversityDeps = [
-      'tws-api',
-      'tws-bootstrap'
-    ];
-
     this.appname = changeCase.paramCase(this.appname);
     this.files = this.fs.readJSON(`${this.sourceRoot()}/files.json`);
     this.newdir = false;
@@ -44,16 +36,29 @@ class diversityComponentGenerator extends Base {
       this.appname = this.compname;
       this.newdir  = true;
     }
+  }
 
-    Promise.all(diversityDeps.map(dep => getComponentVersion(dep))).then((res) => {
-      // Object with all diversityDeps
-      this.diversityDeps = diversityDeps.reduce((object, current, index) => {
-        object[current] = `^${res[index]}`;
-        return object;
-      }, {});
+  prompting() {
+    const done = this.async();
 
-      done();
-    });
+    this.prompt([{
+        type: 'checkbox',
+        name: 'deps',
+        message: 'What dependencies do you want?',
+        choices: ['tws-api', 'tws-util', 'tws-bootstrap', 'tws-article-service', 'tws-ladda'],
+        default: ['tws-api', 'tws-bootstrap'],
+      }], ({ deps }) => {
+        Promise.all(deps.map(dep => getComponentVersion(dep))).then((res) => {
+          // Object with all diversityDeps
+          this.diversityDeps = deps.reduce((object, current, index) => {
+            object[current] = `^${res[index]}`;
+            return object;
+          }, {});
+
+          done();
+        });
+      }
+    );
   }
 
   writing() {
