@@ -4,21 +4,18 @@
   modulename + '.'
 */
 
-angular.module('<%= componentCamelName %>').directive('<%= componentCamelDirective %>',
-['twsApi.Jed',
-  function(jed) {
-    'use strict';
-
+angular.module('<%= componentCamelName %>').directive('<%= componentCamelDirective %>', [
+  'twsApi.Jed',
+  (jed) => {
     return {
       restrict: 'E',
       scope: {},
       templateUrl: '<%= componentName %>/templates/<%= templateFile %>',
-      link: function(scope, element, attrs) {
+      link: (scope, element, attrs) => {
         jed(scope, '<%= componentName %>');
 
         scope.greeting = 'Hello World';
-      }
+      },
     };
-  }
-
+  },
 ]);

@@ -1,8 +1,7 @@
 {
-  "preset": "google",
+  "preset": "airbnb",
   "esnext": true,
   "maximumLineLength": {
-    "value": 100,
     "allowUrlComments": true,
     "allowRegex": true
   }

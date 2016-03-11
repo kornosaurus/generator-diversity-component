@@ -6,13 +6,13 @@
   "indent": 2,
   "esnext": true,
   "globals": {
-    "console":false,
+    "console": false,
     "jQuery": false,
-    "$":false,
+    "$": false,
     "describe": false,
     "it":false,
     "expect": false,
-    "sinon":false,
+    "sinon": false,
     "beforeEach": false,
     "afterEach": false,
     "angular": false,
@@ -22,8 +22,8 @@
     "should": false,
     "Jed": false,
     "tws": false,
-    "require": false, 
-    "Big": true, 
+    "require": false,
+    "Big": true,
     "tv4": true
   }
 }
