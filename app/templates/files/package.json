@@ -9,9 +9,9 @@
   "author": "Textalk",
   "license": "MIT",
   "devDependencies": {
-    "angular": "^1.4.1",
-    "angular-sanitize": "^1.4.1",
-    "angular-mocks": "^1.4.2",
+    "angular": "^1.5.1",
+    "angular-sanitize": "^1.5.1",
+    "angular-mocks": "^1.5.2",
     "bootlint-gui": "^1.0.0",
     "chai": "^1.9.1",
     "connect": "^2.21.1",

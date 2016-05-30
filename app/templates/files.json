@@ -9,6 +9,7 @@
   "<%>gitignore",
   "<%>jscsrc",
   "<%>jshintrc",
+  "webpack.config.js",
   "test/manual.html",
   "test/protractor.conf.js",
   "test/karma/unitTests.js",
