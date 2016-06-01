@@ -8,7 +8,7 @@ import { Base } from 'yeoman-generator';
 
 const getComponentVersion = (name) => {
   return new Promise((resolve, reject) => {
-    http.get(`http://api.diversity.io/components/${name}/*/`, res => {
+    http.get(`http://origin.diversity.io/components/${name}/*/files/diversity.json`, res => {
       res.setEncoding('utf8');
       res.on('data', comp => {
         comp = JSON.parse(comp);
@@ -45,8 +45,8 @@ class diversityComponentGenerator extends Base {
         type: 'checkbox',
         name: 'deps',
         message: 'What dependencies do you want?',
-        choices: ['tws-api', 'tws-util', 'tws-bootstrap', 'tws-article-service', 'tws-ladda'],
-        default: ['tws-api', 'tws-bootstrap'],
+        choices: ['tws-api', 'tws-util', 'tws-article-service', 'tws-ladda'],
+        default: ['tws-api'],
       }], ({ deps }) => {
         Promise.all(deps.map(dep => getComponentVersion(dep))).then((res) => {
           // Object with all diversityDeps
@@ -54,7 +54,6 @@ class diversityComponentGenerator extends Base {
             object[current] = `^${res[index]}`;
             return object;
           }, {});
-
           done();
         });
       }
@@ -101,6 +100,7 @@ class diversityComponentGenerator extends Base {
           componentCamelName: this.camelname,
           componentCamelDirective: this.camelname,
           directiveFile: filename + '.js',
+          filename: filename,
           templateFile: filename + '.html',
           diversityDeps: JSON.stringify(this.diversityDeps)
         }

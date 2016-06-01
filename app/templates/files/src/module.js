@@ -1,3 +1,6 @@
+import angular from 'angular';
+import seed from './directives/<%= filename %>';
+
 /*
   Module definition:
   Should be the same name as the "angular" property in diversity.json.
@@ -5,4 +8,5 @@
 
   Also don't forget to load the modules you depend on.
 */
-angular.module('<%= componentCamelName %>', ['twsApi']);
+angular.module('<%= componentCamelName %>', ['twsApi'])
+       .directive('<%= componentCamelDirective %>', ['twsApi.Jed', seed]);
