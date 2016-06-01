@@ -54,7 +54,6 @@ class diversityComponentGenerator extends Base {
             object[current] = `^${res[index]}`;
             return object;
           }, {});
-          console.log('calling done')
           done();
         });
       }
