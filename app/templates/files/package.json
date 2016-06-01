@@ -8,6 +8,11 @@
   },
   "author": "Textalk",
   "license": "MIT",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "devDependencies": {
     "angular": "^1.5.1",
     "angular-sanitize": "^1.5.1",

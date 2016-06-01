@@ -101,6 +101,7 @@ class diversityComponentGenerator extends Base {
           componentCamelName: this.camelname,
           componentCamelDirective: this.camelname,
           directiveFile: filename + '.js',
+          filename: filename,
           templateFile: filename + '.html',
           diversityDeps: JSON.stringify(this.diversityDeps)
         }

@@ -1,5 +1,5 @@
 import angular from 'angular';
-import seed from './directives/seed.js';
+import seed from './directives/<%= filename %>';
 
 /*
   Module definition:
