@@ -5,9 +5,11 @@
   "version": "0.0.1",
   "angular": "<%= componentCamelName %>",
   "template": "component.mustache.html",
-  "style": "main.css",
   "i18n": {},
   "grouping": [],
+  "release": [
+    "build"
+  ],
   "script": [
     "scripts.min.js"
   ],

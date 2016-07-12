@@ -7,11 +7,7 @@
   "src/directives/seed.js",
   "templates/seed.html",
   "<%>gitignore",
-  "<%>jscsrc",
-  "<%>jshintrc",
+  "<%>eslintrc",
   "webpack.config.js",
-  "test/manual.html",
-  "test/protractor.conf.js",
-  "test/karma/unitTests.js",
-  "test/protractor/e2eTests.js"
+  "test/manual.html"
 ]

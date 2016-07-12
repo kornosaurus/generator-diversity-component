@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "node": true
+  },
+  "globals": {
+
+  },
+  "rules": {
+    "no-param-reassign": ["error", {"props": false}]
+  }
+}

@@ -45,7 +45,7 @@ class diversityComponentGenerator extends Base {
         type: 'checkbox',
         name: 'deps',
         message: 'What dependencies do you want?',
-        choices: ['tws-api', 'tws-util', 'tws-article-service', 'tws-ladda'],
+        choices: ['tws-api', 'tws-util', 'tws-schema-form', 'tws-article-service', 'tws-ladda'],
         default: ['tws-api'],
       }], ({ deps }) => {
         Promise.all(deps.map(dep => getComponentVersion(dep))).then((res) => {
@@ -123,14 +123,11 @@ class diversityComponentGenerator extends Base {
       callback: () => {
 
         // FIXME: Use ES6 template stings for a cleaner look!
-        console.log('\nInstalling the ' + chalk.bold.yellow('webdriver') +
-          ' for protractor\n');
-        child_process.spawnSync('gulp', ['protractor:update-webdriver']);
         console.log('\nInstalling ' + chalk.bold.yellow('test dependencies') +
           '\n');
-        child_process.spawnSync('gulp', ['test-dependencies']);
+        child_process.spawnSync('npm', ['run', 'test-dependencies']);
         console.log('\nGenerating ' + chalk.bold.yellow('scripts.min.js') + '\n');
-        child_process.spawnSync('gulp', ['minify']);
+        child_process.spawnSync('npm', ['run', 'build']);
       }
     });
   }
